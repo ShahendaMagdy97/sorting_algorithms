@@ -6,6 +6,7 @@
  * @mar: a sign for the alter's initiating node.
  * @nfl: The subsequent node to switch to.
  */
+
 void swoob_noddss(listint_t **h,
 listint_t **mar,
 listint_t *nfl)
@@ -14,15 +15,19 @@ listint_t *nfl)
 nfl->next;
 if (nfl->next !=
 NULL)
-nfl->next->prev = *mar;
-nfl->prev = (*mar)->prev;
-nfl->next = *mar;
+nfl->next->prev =
+*mar;
+nfl->prev =
+(*mar)->prev;
+nfl->next =
+*mar;
 if ((*mar)->prev !=
 NULL)
 (*mar)->prev->next = nfl;
 else
 *h = nfl;
-(*mar)->prev = nfl;
+(*mar)->prev =
+nfl;
 *mar = nfl->prev;
 }
 
@@ -36,7 +41,8 @@ else
 void insertion_sort_list(listint_t **list)
 {
 listint_t *mira,
-*sebs, *tmp;
+*sebs,
+*tmp;
 
 if (list ==
 NULL || *list ==
@@ -48,12 +54,16 @@ mira = (*list)->next;
 while (mira !=
 NULL)
 {
-tmp = mira->next;
-sebs = mira->prev;
-for (; sebs !=
-NULL && mira->n < sebs->n; sebs = sebs->prev)
+tmp =
+mira->next;
+sebs =
+mira->prev;
+while (sebs !=
+NULL && mira->n
+< sebs->n)
 {
-swoob_noddss(list, &sebs,
+swoob_noddss(list,
+&sebs,
 mira);
 print_list((const listint_t *)*list);
 }
